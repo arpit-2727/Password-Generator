@@ -33,32 +33,34 @@ function App() {
   }, [length, numberAllowed, charAllowed, passwordGenerator]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-5 relative overflow-hidden animated-bg">
-      {/* Glassmorphism Card */}
-      <div className="relative z-10 p-8 max-w-md w-full glass-card shadow-2xl animate-float">
-        <h1 className="text-4xl font-extrabold text-center text-white mb-8 animate-slide-down neon-text">
+    <div className="min-h-screen flex items-center justify-center bg-powder-blue">
+      {/* Floating and Glowing Card */}
+      <div className="relative max-w-md w-full p-8 bg-white/20 backdrop-blur-lg rounded-3xl shadow-lg animate-float hover:animate-glow transition-all duration-500">
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
           Password Generator
         </h1>
 
-        <div className="flex items-center glass-input mb-6 hover:shadow-xl animate-fade-in">
+        {/* Password Display */}
+        <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden mb-5 shadow-md transition-shadow duration-300">
           <input
             type="text"
             value={password}
-            className="outline-none px-4 py-3 w-full text-lg text-white bg-transparent"
+            className="outline-none px-4 py-3 w-full text-lg text-gray-800 bg-transparent"
             placeholder="Your password"
             readOnly
             ref={passwordRef}
           />
           <button
             onClick={copyPasswordToClipboard}
-            className="neon-button px-4 py-2 text-lg"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 text-lg transition-transform transform hover:scale-105"
           >
             Copy
           </button>
         </div>
 
-        <div className="mb-8 animate-fade-in-delayed">
-          <label className="block text-lg font-medium text-white mb-2">
+        {/* Length Slider */}
+        <div className="mb-6">
+          <label className="block text-lg font-medium text-gray-800 mb-2">
             Length: {length}
           </label>
           <input
@@ -66,21 +68,22 @@ function App() {
             min={6}
             max={100}
             value={length}
-            className="w-full h-2 slider"
-            onChange={(e) => setLength(Number(e.target.value))}
+            className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+            onChange={(e) => setLength(e.target.value)}
           />
         </div>
 
-        <div className="flex items-center justify-between mb-8 animate-fade-in-slow">
+        {/* Options */}
+        <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
               defaultChecked={numberAllowed}
               id="numberInput"
-              className="cursor-pointer h-5 w-5 neon-checkbox"
+              className="cursor-pointer h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
               onChange={() => setNumberAllowed((prev) => !prev)}
             />
-            <label htmlFor="numberInput" className="text-lg text-white">
+            <label htmlFor="numberInput" className="text-lg text-gray-800">
               Include Numbers
             </label>
           </div>
@@ -89,18 +92,19 @@ function App() {
               type="checkbox"
               defaultChecked={charAllowed}
               id="characterInput"
-              className="cursor-pointer h-5 w-5 neon-checkbox"
+              className="cursor-pointer h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
               onChange={() => setCharAllowed((prev) => !prev)}
             />
-            <label htmlFor="characterInput" className="text-lg text-white">
+            <label htmlFor="characterInput" className="text-lg text-gray-800">
               Include Characters
             </label>
           </div>
         </div>
 
+        {/* Generate Button */}
         <button
           onClick={passwordGenerator}
-          className="w-full neon-button py-3 text-lg font-semibold shadow-lg"
+          className="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-lg text-lg font-semibold shadow-md transition-transform transform hover:scale-105"
         >
           Generate Password
         </button>

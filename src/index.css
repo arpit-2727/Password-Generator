@@ -1,3 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Background Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animated-bg {
+    background: linear-gradient(270deg, #ff0080, #8a2be2, #40e0d0, #ff8c00);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  /* Glassmorphism Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  
+  /* Neon Text Effect */
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+  }
+  
+  /* Neon Button */
+  .neon-button {
+    background-color: #8a2be2;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #8a2be2, 0 0 30px #ff00ff;
+  }
+  
+  .neon-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff00ff, 0 0 40px #8a2be2;
+  }
+  
+  /* Slider */
+  .slider {
+    background: linear-gradient(to right, #ff0080, #8a2be2);
+    border-radius: 10px;
+    transition: background 0.5s;
+  }
+  
+  /* Neon Checkbox */
+  .neon-checkbox {
+    accent-color: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+  }
+  
+  /* Animations */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 1s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  .animate-fade-in-delayed {
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .animate-fade-in-slow {
+    animation: fadeIn 2.5s ease-out;
+  }
+  
